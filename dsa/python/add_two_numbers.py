@@ -1,5 +1,6 @@
 from typing import Optional
 
+
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -7,12 +8,16 @@ class ListNode:
         self.next = next
 
 
-
 class Solution:
-    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
-
-        def helper(l1:  Optional[ListNode], l2:  Optional[ListNode], acc=None, carry=False):
-        
+    def addTwoNumbers(
+        self, l1: Optional[ListNode], l2: Optional[ListNode]
+    ) -> Optional[ListNode]:
+        def helper(
+            l1: Optional[ListNode],
+            l2: Optional[ListNode],
+            acc: Optional[ListNode] = None,
+            carry: bool = False,
+        ) -> Optional[ListNode]:
             if (l1 is None) and (l2 is None) and (not carry):
                 return acc
 
@@ -25,7 +30,7 @@ class Solution:
             if l2 is not None:
                 d += l2.val
                 l2 = l2.next
-            
+
             if carry:
                 d += 1
 
@@ -40,16 +45,7 @@ class Solution:
                     p = p.next
                 else:
                     p.next = ListNode(val=d)
-        
+
             return helper(l1, l2, acc, carry)
 
         return helper(l1, l2)
-                
-
-        
-
-
-
-
-        
-
