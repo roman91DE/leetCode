@@ -8,7 +8,6 @@ class ListNode:
         self.next: ListNode | None = next
 
 
-
 def llen(l: Optional[ListNode]) -> int:
     if l is None:
         return 0
@@ -18,6 +17,7 @@ def llen(l: Optional[ListNode]) -> int:
         p = p.next
         c += 1
     return c
+
 
 class Solution:
     def addTwoNumbersRec(
@@ -60,17 +60,16 @@ class Solution:
             return helper(l1, l2, acc, carry)
 
         return helper(l1, l2)
-    
+
     def addTwoNumbersIt(
         self, l1: Optional[ListNode], l2: Optional[ListNode]
     ) -> Optional[ListNode]:
-        
         if l1 is None or l2 is None:
             return l1 or l2
-            
+
         if llen(l1) < llen(l2):
             return self.addTwoNumbersRec(l2, l1)
-        
+
         p1 = l1
         p2 = l2
         carry: bool = False
@@ -78,11 +77,11 @@ class Solution:
         while p1 is not None:
             # Calculate the sum for current position
             temp = p1.val
-            
+
             if p2 is not None:
                 temp += p2.val
                 p2 = p2.next
-            
+
             if carry:
                 temp += 1
 
@@ -100,4 +99,3 @@ class Solution:
                 break
 
         return l1
-
