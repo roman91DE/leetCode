@@ -1,0 +1,7 @@
+.bsp/
+.metals/
+.ruff_cache/
+.scala-build/
+.venv/
+.vscode/
+.DS_Store
