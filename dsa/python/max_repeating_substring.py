@@ -7,5 +7,4 @@ class Solution:
                 k += 1
                 buf += word
             else:
-                return k 
-        
+                return k

@@ -8,11 +8,11 @@ class ListNode:
         self.next: ListNode | None = next
 
 
-def llen(l: Optional[ListNode]) -> int:
-    if l is None:
+def llen(lst: Optional[ListNode]) -> int:
+    if lst is None:
         return 0
     c = 0
-    p = l
+    p = lst
     while p is not None:
         p = p.next
         c += 1
