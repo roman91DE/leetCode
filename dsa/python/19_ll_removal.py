@@ -26,9 +26,6 @@ class Solution:
 
 def f(head: Optional[ListNode], n: int) -> Optional[ListNode]:
 
-    if head is None:
-        return None
-
     def llen(lst: Optional[ListNode]) -> int:
         c = 0
         cur = lst
@@ -38,19 +35,27 @@ def f(head: Optional[ListNode], n: int) -> Optional[ListNode]:
         return c
 
     length = llen(head)
-    i = length - n
-    
-    newList = None
-    newPtr = None
-    oldPtr = head
+    idx = length - n
 
-    for j in range(length):
-        if newList is None:
-            newList = ListNode(oldPtr.val)
-            newPtr = newList
+    if head is None:
+        return None
 
-        if i == j:
-            break
+    if n == 1 and length == 1:
+        return None
+
+    elif idx == 0:
+        return head.next
+
+    cur = head
+
+    for k in range(1, length):
+        if cur is None:
+            return head
+        if k == idx:
+            cur.next = cur.next.next # ugly type error...
+        cur = cur.next
+
+    return head
 
 
 
