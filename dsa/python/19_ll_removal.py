@@ -25,7 +25,6 @@ class Solution:
 
 
 def f(head: Optional[ListNode], n: int) -> Optional[ListNode]:
-
     def llen(lst: Optional[ListNode]) -> int:
         c = 0
         cur = lst
@@ -52,19 +51,10 @@ def f(head: Optional[ListNode], n: int) -> Optional[ListNode]:
         if cur is None:
             return head
         if k == idx:
-            cur.next = cur.next.next # ugly type error...
+            cur.next = cur.next.next  # ugly type error...
         cur = cur.next
 
     return head
-
-
-
-
-
-    
-        
-
-
 
 
 # In[39]:
@@ -77,12 +67,12 @@ def print_ll(head: Optional[ListNode]) -> None:
         cur = cur.next
     print("None")
 
-l = ListNode(1, next=ListNode(2, next=ListNode(3, next=ListNode(4, next=ListNode(5)))))
-print_ll(l)
+
+lst = ListNode(1, next=ListNode(2, next=ListNode(3, next=ListNode(4, next=ListNode(5)))))
+print_ll(lst)
 
 
 # In[ ]:
 
 
-f(l, 4)
-
+f(lst, 4)

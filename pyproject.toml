@@ -14,3 +14,9 @@ dependencies = [
     "pandas>=2.3.3",
     "ruff>=0.14.0",
 ]
+
+
+[tool.ruff]
+lint.ignore = [
+    "E741"
+]
