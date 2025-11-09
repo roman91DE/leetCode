@@ -68,7 +68,9 @@ def print_ll(head: Optional[ListNode]) -> None:
     print("None")
 
 
-lst = ListNode(1, next=ListNode(2, next=ListNode(3, next=ListNode(4, next=ListNode(5)))))
+lst = ListNode(
+    1, next=ListNode(2, next=ListNode(3, next=ListNode(4, next=ListNode(5))))
+)
 print_ll(lst)
 
 
