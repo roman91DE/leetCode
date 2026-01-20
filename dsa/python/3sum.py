@@ -1,11 +1,31 @@
 from typing import List
 
 
+def twosums(nums: List[int], target: int) -> List[List[int]]:
+    # snums = sorted(nums)
+    snums = nums[:]
+    i, j = 0, len(snums) - 1
+    solutions = []
+    while i < j:
+        _temp = snums[i] + snums[j]
+        if _temp == target:
+            solutions.append([snums[i], snums[j]])
+            i += 1
+            j -= 1
+        elif _temp < target:
+            i += 1
+        else:
+            j -= 1
+    return solutions
+
+
 def three_sum(nums: List[int]) -> List[List[int]]:
     snums = sorted(nums)
-    """
-    fix one number, and use two pointers to find other two numbers 
-    """
+    solutions = []
+    for i, num in enumerate(snums):
+        arr = snums[:i] + snums[i + 1 :]
+        solutions.extend(twosums(arr, -num))
+    return solutions
 
 
 class Solution(object):
@@ -3021,5 +3041,5 @@ test_data = [
 ]
 
 
-res = deduplicate_triplets(three_sum(test_data))
+res = three_sum(test_data)
 print(len(res))
